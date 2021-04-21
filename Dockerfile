@@ -1,5 +1,5 @@
 FROM golang:latest
 WORKDIR /goweb
 COPY . /goweb
-RUN go build -o hisrv .
+RUN go env -w GOPROXY=https://goproxy.cn,direct; go build -o hisrv .
 ENTRYPOINT ./hisrv
